@@ -65,6 +65,9 @@ describe('Frame', () => {
       it('is NOT a complete frame', () => {
         expect(frame.isComplete()).toBeFalsy();
       })
+      it('is NOT completely scored', () => {
+        expect(frame.isScoreComplete()).toBeFalsy();
+      })
     })
 
     describe('with two rolls', () => {
@@ -74,6 +77,9 @@ describe('Frame', () => {
       })
       it('IS a complete frame', () => {
         expect(frame.isComplete()).toBeTruthy();
+      })
+      it('IS completely scored', () => {
+        expect(frame.isScoreComplete()).toBeTruthy();
       })
     })
   })
@@ -87,6 +93,9 @@ describe('Frame', () => {
       it('IS a complete frame', () => {
         expect(frame.isComplete()).toBeTruthy();
       })
+      it('is NOT completely scored', () => {
+        expect(frame.isScoreComplete()).toBeFalsy();
+      })
     })
     describe('with 1 following roll', () => {
       let frame = new Frame(7, 3, 6);
@@ -95,6 +104,9 @@ describe('Frame', () => {
       })
       it('IS a complete frame', () => {
         expect(frame.isComplete()).toBeTruthy();
+      })
+      it('IS completely scored', () => {
+        expect(frame.isScoreComplete()).toBeTruthy();
       })
     })
   })
@@ -108,6 +120,9 @@ describe('Frame', () => {
       it('IS a complete frame', () => {
         expect(frame.isComplete()).toBeTruthy();
       })
+      it('is NOT completely scored', () => {
+        expect(frame.isScoreComplete()).toBeFalsy();
+      })
     })
     describe('with 1 following roll', () => {
       let frame = new Frame(10, 9);
@@ -117,6 +132,9 @@ describe('Frame', () => {
       it('IS a complete frame', () => {
         expect(frame.isComplete()).toBeTruthy();
       })
+      it('is NOT completely scored', () => {
+        expect(frame.isScoreComplete()).toBeFalsy();
+      })
     })
     describe('with 2 following rolls', () => {
       let frame = new Frame(10, 9, 8);
@@ -125,6 +143,9 @@ describe('Frame', () => {
       })
       it('IS a complete frame', () => {
         expect(frame.isComplete()).toBeTruthy();
+      })
+      it('IS completely scored', () => {
+        expect(frame.isScoreComplete()).toBeTruthy();
       })
     })
   })

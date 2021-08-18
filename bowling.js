@@ -19,6 +19,22 @@ export class Frame {
   }
 
   isComplete = () => {
-    return (this.rolls[0] == 10 && this.rolls.length >= 1) || this.rolls.length >= 2
+    return (this.isStrike() && this.rolls.length >= 1) || this.rolls.length >= 2
   }
+
+  isScoreComplete = () => {
+    if ( this.isStrike() || this.isSpare() ) {
+      return this.rolls.length == 3;
+    }
+    return this.rolls.length == 2;
+  }
+
+  isStrike = () => {
+    return this.rolls[0] == 10;
+  }
+
+  isSpare = () => {
+    return !this.isStrike() && (this.rolls[0] + (this.rolls[1] || 0) == 10);
+  }
+
 }
