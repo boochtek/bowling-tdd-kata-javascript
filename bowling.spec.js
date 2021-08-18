@@ -64,4 +64,25 @@ describe('Frame', () => {
       })
     })
   })
+
+  describe('a frame with a strike', () => {
+    describe('with no following rolls', () => {
+      let frame = new Frame(10);
+      it('scores 10 points', () => {
+        expect(frame.score).toEqual(10);
+      })
+    })
+    describe('with 1 following roll', () => {
+      let frame = new Frame(10, 9);
+      it('scores 10 points, plus the number of pins knocked down in the following roll', () => {
+        expect(frame.score).toEqual(10 + 9);
+      })
+    })
+    describe('with 2 following rolls', () => {
+      let frame = new Frame(10, 9, 8);
+      it('scores 10 points, plus the number of pins knocked down in the following 2 rolls', () => {
+        expect(frame.score).toEqual(10 + 9 + 8);
+      })
+    })
+  })
 })
