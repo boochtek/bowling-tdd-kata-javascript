@@ -1,9 +1,42 @@
 export class Game {
-  roll() {
+  constructor() {
+    this.frames = [];
   }
 
+  roll(pins) {
+    const frameNumber = this.frames.length + 1
+
+    if ( frameNumber == 1 ) {
+      const frame = new Frame(pins);
+      this.frames.push(frame);
+      return;
+    }
+
+    const lastFrame = this.frames[frameNumber - 2];
+    if ( lastFrame.isComplete() ) {
+      const frame = new Frame(pins);
+      this.frames.push(frame);
+    } else {
+      const frame = new Frame(...lastFrame.rolls, pins);
+      this.frames.pop();
+      this.frames.push(frame);
+    }
+
+    if ( lastFrame && !lastFrame.isScoreComplete() ) {
+      this.frames[frameNumber - 2] = new Frame(...lastFrame.rolls, pins);
+    }
+
+    const secondLastFrame = this.frames[frameNumber - 3];
+    if ( secondLastFrame && !secondLastFrame.isScoreComplete() ) {
+      this.frames[frameNumber - 3] = new Frame(...secondLastFrame.rolls, pins);
+    }
+  }
+
+
   get score() {
-    return 0;
+    return this.frames.reduce((acc, frame) => {
+      return acc + frame.score;
+    }, 0);
   }
 }
 

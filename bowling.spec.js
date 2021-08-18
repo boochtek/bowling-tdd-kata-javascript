@@ -20,7 +20,7 @@ describe('Game', () => {
     })
   })
 
-  xdescribe('a game starting with 3 strikes', () => {
+  describe('a game starting with 3 strikes', () => {
     let game = new Game;
     const rolls = [10, 10, 10];
     rolls.forEach((roll) => {
@@ -31,7 +31,7 @@ describe('Game', () => {
     })
   })
 
-  xdescribe('a game starting with a mix of strikes, spares, and open frames', () => {
+  describe('a game starting with a mix of strikes, spares, and open frames', () => {
     let game = new Game;
     const rolls = [10, 2, 7, 5, 5, 6, 3];
     rolls.forEach((roll) => {
@@ -42,7 +42,7 @@ describe('Game', () => {
     })
   })
 
-  xdescribe('a perfect game', () => {
+  describe('a perfect game', () => {
     let game = new Game;
     const rolls = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
     rolls.forEach((roll) => {
