@@ -49,4 +49,19 @@ describe('Frame', () => {
       })
     })
   })
+
+  describe('a frame with a spare', () => {
+    describe('with no following rolls', () => {
+      let frame = new Frame(7, 3);
+      it('scores 10 points', () => {
+        expect(frame.score).toEqual(10);
+      })
+    })
+    describe('with 1 following roll', () => {
+      let frame = new Frame(7, 3, 6);
+      it('scores 10 points, plus the following roll', () => {
+        expect(frame.score).toEqual(10 + 6);
+      })
+    })
+  })
 })
