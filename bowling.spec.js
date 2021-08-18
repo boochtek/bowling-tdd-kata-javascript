@@ -41,5 +41,12 @@ describe('Frame', () => {
         expect(frame.score).toEqual(7);
       })
     })
+
+    describe('with two rolls', () => {
+      let frame = new Frame(7, 2);
+      it('scores points for the number of pins knocked down in both rolls', () => {
+        expect(frame.score).toEqual(7 + 2);
+      })
+    })
   })
 })

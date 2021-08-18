@@ -8,11 +8,13 @@ export class Game {
 }
 
 export class Frame {
-  constructor(roll) {
-    this.roll = roll;
+  constructor(...rolls) {
+    this.rolls = rolls;
   }
 
   get score() {
-    return this.roll;
+    return this.rolls.reduce((acc, roll) => {
+      return acc + roll;
+    });
   }
 }
