@@ -17,4 +17,8 @@ export class Frame {
       return acc + roll;
     });
   }
+
+  isComplete = () => {
+    return (this.rolls[0] == 10 && this.rolls.length >= 1) || this.rolls.length >= 2
+  }
 }

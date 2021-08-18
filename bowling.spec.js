@@ -62,12 +62,18 @@ describe('Frame', () => {
       it('scores points for the number of pins knocked down in the roll', () => {
         expect(frame.score).toEqual(7);
       })
+      it('is NOT a complete frame', () => {
+        expect(frame.isComplete()).toBeFalsy();
+      })
     })
 
     describe('with two rolls', () => {
       let frame = new Frame(7, 2);
       it('scores points for the number of pins knocked down in both rolls', () => {
         expect(frame.score).toEqual(7 + 2);
+      })
+      it('IS a complete frame', () => {
+        expect(frame.isComplete()).toBeTruthy();
       })
     })
   })
@@ -78,11 +84,17 @@ describe('Frame', () => {
       it('scores 10 points', () => {
         expect(frame.score).toEqual(10);
       })
+      it('IS a complete frame', () => {
+        expect(frame.isComplete()).toBeTruthy();
+      })
     })
     describe('with 1 following roll', () => {
       let frame = new Frame(7, 3, 6);
       it('scores 10 points, plus the following roll', () => {
         expect(frame.score).toEqual(10 + 6);
+      })
+      it('IS a complete frame', () => {
+        expect(frame.isComplete()).toBeTruthy();
       })
     })
   })
@@ -93,17 +105,26 @@ describe('Frame', () => {
       it('scores 10 points', () => {
         expect(frame.score).toEqual(10);
       })
+      it('IS a complete frame', () => {
+        expect(frame.isComplete()).toBeTruthy();
+      })
     })
     describe('with 1 following roll', () => {
       let frame = new Frame(10, 9);
       it('scores 10 points, plus the number of pins knocked down in the following roll', () => {
         expect(frame.score).toEqual(10 + 9);
       })
+      it('IS a complete frame', () => {
+        expect(frame.isComplete()).toBeTruthy();
+      })
     })
     describe('with 2 following rolls', () => {
       let frame = new Frame(10, 9, 8);
       it('scores 10 points, plus the number of pins knocked down in the following 2 rolls', () => {
         expect(frame.score).toEqual(10 + 9 + 8);
+      })
+      it('IS a complete frame', () => {
+        expect(frame.isComplete()).toBeTruthy();
       })
     })
   })
