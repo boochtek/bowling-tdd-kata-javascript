@@ -1,4 +1,4 @@
-import { Game } from './bowling';
+import { Game, Frame } from './bowling';
 
 
 describe('Game', () => {
@@ -28,6 +28,18 @@ describe('Game', () => {
     });
     it ('scores 300 points', () => {
       expect(game.score).toEqual(300);
+    })
+  })
+})
+
+
+describe('Frame', () => {
+  describe('an open frame', () => {
+    describe('with one roll', () => {
+      let frame = new Frame(7);
+      it('scores points for the number of pins knocked down in the roll', () => {
+        expect(frame.score).toEqual(7);
+      })
     })
   })
 })
