@@ -1,6 +1,23 @@
 export class Game {
-  roll() {
+  constructor() {
+    this.frames = [];
+    this.frameNumber = 1;
+  }
 
+  roll(pins) {
+    const frame = new Frame(pins);
+    this.frames.push(frame)
+
+    const previousFrame = this.frames[this.frameNumber - 2];
+    const secondPreviousFrame = this.frames[this.frameNumber - 3];
+
+    if ( previousFrame ) {
+      previousFrame.roll(pins);
+    }
+    if ( secondPreviousFrame ) {
+      secondPreviousFrame.roll(pins);
+    }
+    this.frameNumber = this.frameNumber + 1;
   }
 
   get score() {

@@ -20,7 +20,7 @@ describe('Game', () => {
     })
   })
 
-  xdescribe('a game starting with 3 strikes', () => {
+  describe('a game starting with 3 strikes', () => {
     let game = new Game;
     const rolls = [10, 10, 10];
     rolls.forEach((roll) => {
