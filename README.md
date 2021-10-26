@@ -5,6 +5,8 @@ pins arranged in a triangle.
 
 In this kata, we need code to keep score for a game of bowling.
 
+## TDD
+
 Some things to keep in mind when doing this with TDD:
 
 * The rules of TDD require you to write a failing test before you write the code to make the test pass.
@@ -21,6 +23,9 @@ Some things to keep in mind when doing this with TDD:
 * Having the tests run automatically every time you save is a great way to keep the red/green/refactor loop tight. With the Jest testing framework for JavaScript, that's `jest --watch`.
 * Once you get a small set of related tests passing, you should commit.
 
+## Branches
+
+I've created a few branches for my own solutions, implemented via TDD. I don't think this is super useful, as you'd have to walk through each of my commits to see what I did at each step. But some might find that useful.
 
 ## Scoring
 
